@@ -1,17 +1,28 @@
 package domain;
 
 public class Post {
-    private int id;
-    private int idName;
-    private String LogoUrl;
-    private int date;
-    private String imageUrl;
-    private String videoUrl;
-    private String text;
-    private int like;
-    private int reposts;
-    private int views;
-    private Comments comments;
+    private int id; //Идентификатор записи
+    private int ownerId; // Идентификатор владельца стены
+    private int fromId; // Идентификатор автора записи
+    private String LogoUrl; //Логотип
+    private int date; // Время публикации записи
+    private String imageUrl; // ссылка на картинку
+    private String videoUrl; // ссылка на видео
+    private String text; // Текст записи.
+    private int isPinned; // Информация о том, что запись закреплена.
+    private CommentsInfo commentsInfo; //Информация о комментариях к записи.
+    private int signerId; // Идентификатор автора, если запись была опубликована от имени сообщества и подписана пользователем;
+    private int replyOwnerId; // Идентификатор владельца записи, в ответ на которую была оставлена текущая.
+    private int replyPostId; // Идентификатор записи, в ответ на которую была оставлена текущая.
+    private LikesInfo likesInfo; // Информация о лайках к записи
+    private RepostsInfo repostsInfo; // Информация о репостах записи
+    private ViewsInfo viewsInfo; //Информация о просмотрах записи.
+    private GeoInfo geoInfo; // Информация о местоположении
+    private boolean friendsOnly; //1, если запись была создана с опцией «Только для друзей».
+    private boolean markedAsAds; //Информация о том, содержит ли запись отметку «реклама» (1 — да, 0 — нет).
+    private boolean canEdit; // Информация о том, может ли текущий пользователь редактировать запись (1 — может, 0 — не может).
+    private boolean canDelete; // Информация о том, может ли текущий пользователь удалить запись (1 — может, 0 — не может).
+    private boolean canPin; // Информация о том, может ли текущий пользователь закрепить запись (1 — может, 0 — не может).
 
     public int getId() {
         return id;
@@ -21,12 +32,20 @@ public class Post {
         this.id = id;
     }
 
-    public int getIdName() {
-        return idName;
+    public int getOwnerId() {
+        return ownerId;
     }
 
-    public void setIdName(int idName) {
-        this.idName = idName;
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public int getFromId() {
+        return fromId;
+    }
+
+    public void setFromId(int fromId) {
+        this.fromId = fromId;
     }
 
     public String getLogoUrl() {
@@ -69,35 +88,115 @@ public class Post {
         this.text = text;
     }
 
-    public int getLike() {
-        return like;
+    public int getIsPinned() {
+        return isPinned;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setIsPinned(int isPinned) {
+        this.isPinned = isPinned;
     }
 
-    public int getReposts() {
-        return reposts;
+    public CommentsInfo getCommentsInfo() {
+        return commentsInfo;
     }
 
-    public void setReposts(int reposts) {
-        this.reposts = reposts;
+    public void setCommentsInfo(CommentsInfo commentsInfo) {
+        this.commentsInfo = commentsInfo;
     }
 
-    public int getViews() {
-        return views;
+    public int getSignerId() {
+        return signerId;
     }
 
-    public void setViews(int views) {
-        this.views = views;
+    public void setSignerId(int signerId) {
+        this.signerId = signerId;
     }
 
-    public Comments getComments() {
-        return comments;
+    public int getReplyOwnerId() {
+        return replyOwnerId;
     }
 
-    public void setComments(Comments comments) {
-        this.comments = comments;
+    public void setReplyOwnerId(int replyOwnerId) {
+        this.replyOwnerId = replyOwnerId;
+    }
+
+    public int getReplyPostId() {
+        return replyPostId;
+    }
+
+    public void setReplyPostId(int replyPostId) {
+        this.replyPostId = replyPostId;
+    }
+
+    public LikesInfo getLikesInfo() {
+        return likesInfo;
+    }
+
+    public void setLikesInfo(LikesInfo likesInfo) {
+        this.likesInfo = likesInfo;
+    }
+
+    public RepostsInfo getRepostsInfo() {
+        return repostsInfo;
+    }
+
+    public void setRepostsInfo(RepostsInfo repostsInfo) {
+        this.repostsInfo = repostsInfo;
+    }
+
+    public ViewsInfo getViewsInfo() {
+        return viewsInfo;
+    }
+
+    public void setViewsInfo(ViewsInfo viewsInfo) {
+        this.viewsInfo = viewsInfo;
+    }
+
+    public GeoInfo getGeoInfo() {
+        return geoInfo;
+    }
+
+    public void setGeoInfo(GeoInfo geoInfo) {
+        this.geoInfo = geoInfo;
+    }
+
+    public boolean isFriendsOnly() {
+        return friendsOnly;
+    }
+
+    public void setFriendsOnly(boolean friendsOnly) {
+        this.friendsOnly = friendsOnly;
+    }
+
+    public boolean isMarkedAsAds() {
+        return markedAsAds;
+    }
+
+    public void setMarkedAsAds(boolean markedAsAds) {
+        this.markedAsAds = markedAsAds;
+    }
+
+    public boolean isCanEdit() {
+        return canEdit;
+    }
+
+    public void setCanEdit(boolean canEdit) {
+        this.canEdit = canEdit;
+    }
+
+    public boolean isCanDelete() {
+        return canDelete;
+    }
+
+    public void setCanDelete(boolean canDelete) {
+        this.canDelete = canDelete;
+    }
+
+    public boolean isCanPin() {
+        return canPin;
+    }
+
+    public void setCanPin(boolean canPin) {
+        this.canPin = canPin;
     }
 }
